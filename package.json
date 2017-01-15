@@ -7,7 +7,8 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "express": "*"
+    "express": "*",
+    "path": "*"
   },
   "engines": {
     "node": "4.0.0"

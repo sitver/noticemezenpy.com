@@ -1,10 +1,14 @@
 var express = require('express');
-//var server = express.createServer();
-// express.createServer()  is deprecated. 
-var server = express(); // better instead
-server.configure(function(){
-  server.use('/media', express.static(__dirname + '/media'));
-  server.use(express.static(__dirname + '/public'));
-});
+var path = require('path');
+var app = express();
 
-server.listen(3000);
+// Define the port to run on
+app.set('port', 3000);
+
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Listen for requests
+var server = app.listen(app.get('port'), function() {
+  var port = server.address().port;
+  console.log('Magic happens on port ' + port);
+});
